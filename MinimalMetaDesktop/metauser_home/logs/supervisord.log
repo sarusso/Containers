@@ -1,0 +1,28 @@
+2020-05-14 15:23:25,726 INFO Included extra file "/etc/supervisor/conf.d/supervisord_novnc.conf" during parsing
+2020-05-14 15:23:25,727 INFO Included extra file "/etc/supervisor/conf.d/supervisord_vnc.conf" during parsing
+2020-05-14 15:23:25,743 INFO RPC interface 'supervisor' initialized
+2020-05-14 15:23:25,744 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2020-05-14 15:23:25,748 INFO supervisord started with pid 1
+2020-05-14 15:23:26,758 INFO spawned: 'novnc' with pid 18
+2020-05-14 15:23:26,768 INFO spawned: 'vnc' with pid 19
+2020-05-14 15:23:29,884 INFO reaped unknown pid 44
+2020-05-14 15:23:36,915 INFO success: novnc entered RUNNING state, process has stayed up for > than 10 seconds (startsecs)
+2020-05-14 15:23:36,917 INFO success: vnc entered RUNNING state, process has stayed up for > than 10 seconds (startsecs)
+2020-05-14 15:23:53,706 WARN received SIGINT indicating exit request
+2020-05-14 15:23:53,712 INFO waiting for novnc, vnc to die
+2020-05-14 15:23:54,721 INFO stopped: vnc (terminated by SIGTERM)
+2020-05-14 15:23:54,723 INFO stopped: novnc (terminated by SIGTERM)
+2020-05-14 15:23:57,760 INFO Included extra file "/etc/supervisor/conf.d/supervisord_novnc.conf" during parsing
+2020-05-14 15:23:57,761 INFO Included extra file "/etc/supervisor/conf.d/supervisord_vnc.conf" during parsing
+2020-05-14 15:23:57,776 INFO RPC interface 'supervisor' initialized
+2020-05-14 15:23:57,777 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2020-05-14 15:23:57,783 INFO supervisord started with pid 1
+2020-05-14 15:23:58,799 INFO spawned: 'novnc' with pid 11
+2020-05-14 15:23:58,808 INFO spawned: 'vnc' with pid 12
+2020-05-14 15:24:01,917 INFO reaped unknown pid 37
+2020-05-14 15:24:09,051 INFO success: novnc entered RUNNING state, process has stayed up for > than 10 seconds (startsecs)
+2020-05-14 15:24:09,057 INFO success: vnc entered RUNNING state, process has stayed up for > than 10 seconds (startsecs)
+2020-05-14 15:24:17,133 WARN received SIGINT indicating exit request
+2020-05-14 15:24:17,136 INFO waiting for novnc, vnc to die
+2020-05-14 15:24:18,140 INFO stopped: vnc (terminated by SIGTERM)
+2020-05-14 15:24:18,145 INFO stopped: novnc (terminated by SIGTERM)

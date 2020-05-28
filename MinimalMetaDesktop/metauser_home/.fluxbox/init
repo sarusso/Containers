@@ -43,7 +43,7 @@ session.screen0.windowPlacement:	RowMinOverlapPlacement
 session.screen0.focusNewWindows:	true
 session.screen0.clickRaises:	true
 session.screen0.maxDisableResize:	false
-session.screen0.windowMenu:	/metauser/.fluxbox/windowmenu
+session.screen0.windowMenu:	/home/metauser/.fluxbox/windowmenu
 session.screen0.allowRemoteActions:	false
 session.screen0.strftimeFormat:	%d %b, %a %02k:%M:%S
 session.screen0.focusSameHead:	false
@@ -58,18 +58,18 @@ session.screen0.focusModel:	ClickFocus
 session.screen0.showwindowposition:	false
 session.screen0.maxIgnoreIncrement:	true
 session.screen0.workspaces:	1
-session.styleOverlay:	/metauser/.fluxbox/overlay
+session.styleOverlay:	/home/metauser/.fluxbox/overlay
 session.keyFile:	~/.fluxbox/keys
 session.cacheMax:	200
 session.tabsAttachArea:	Window
-session.slitlistFile:	/metauser/.fluxbox/slitlist
+session.slitlistFile:	/home/metauser/.fluxbox/slitlist
 session.forcePseudoTransparency:	false
 session.tabPadding:	0
 session.colorsPerChannel:	4
 session.styleFile:	/usr/share/fluxbox/styles//ubuntu-light
 session.autoRaiseDelay:	250
 session.cacheLife:	5
-session.appsFile:	/metauser/.fluxbox/apps
+session.appsFile:	/home/metauser/.fluxbox/apps
 session.ignoreBorder:	false
 session.configVersion:	13
 session.doubleClickInterval:	250

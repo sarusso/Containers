@@ -30,11 +30,11 @@ COPY files/PyDev_3.4.1.zip /tmp
 RUN cd eclipse/dropins/ && unzip /tmp/PyDev_3.4.1.zip
 RUN mv eclipse /opt/
 COPY files/eclipse128.png /opt/eclipse/eclipse128.png
-COPY files/Eclipse.desktop /metauser_vanilla/Desktop/
-RUN chown -R metauser:metauser /metauser_vanilla/Desktop/
+COPY files/Eclipse.desktop /metauser_home_vanilla/Desktop/
+RUN chown -R metauser:metauser /metauser_home_vanilla/Desktop/
 
 # Set terminals interrupt shortcut to ctrl-x
-#RUN echo "stty intr ^x" >> /metauser_vanilla/.bashrc
+#RUN echo "stty intr ^x" >> /metauser_home_vanilla/.bashrc
 
 # Enable Inet for ssh X forwarding
 #RUN echo "AddressFamily inet" >> /etc/ssh/sshd_config

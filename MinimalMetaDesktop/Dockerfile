@@ -23,7 +23,7 @@ RUN apt-get install -y nano telnet unzip wget supervisor build-essential python-
 RUN groupadd -g 65527 metauser
 
 # Add user. We chose UID 65527 to try avoiding conflicts.
-RUN useradd metauser -d /metauser -u 65527 -g 65527 -m -s /bin/bash
+RUN useradd metauser -d /home/metauser -u 65527 -g 65527 -m -s /bin/bash
 
 # Add metuaser user to sudoers
 RUN adduser metauser sudo
@@ -78,15 +78,19 @@ COPY files/xstartup /opt/tigervnc/
 RUN chmod 755 /opt/tigervnc/xstartup
 
 # Prepare for logs
-RUN mkdir /metauser/logs && chown metauser:metauser /metauser/logs
+RUN mkdir /home/metauser/.logs && chown metauser:metauser /home/metauser/.logs
 
 # Rename metauser home folder as a "vanilla" home folder
-RUN mv /metauser /metauser_vanilla
+RUN mv /home/metauser /metauser_home_vanilla
 
 # Add fluxbox customisations
-COPY files/dot_fluxbox /metauser_vanilla/.fluxbox
-RUN chown -R metauser:metauser /metauser_vanilla/.fluxbox
+COPY files/dot_fluxbox /metauser_home_vanilla/.fluxbox
+RUN chown -R metauser:metauser /metauser_home_vanilla/.fluxbox
 COPY files/background.jpg /usr/share/images/fluxbox/background.jpg
+
+# Give write access to anyone to the home folder so the entrypoint will be able
+# to copy over the /home/matauser_vanilla into /home/metause (for Singularity)
+RUN chmod 777 /home
 
 
 #----------------------

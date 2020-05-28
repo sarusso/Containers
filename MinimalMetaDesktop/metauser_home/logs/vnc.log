@@ -1,14 +1,14 @@
-xauth:  file /metauser/.Xauthority does not exist
+xauth:  file /home/metauser/.Xauthority does not exist
 
 New '8424db806320:0 ()' desktop is 8424db806320:0
 
-Creating default config /metauser/.vnc/config
+Creating default config /home/metauser/.vnc/config
 Starting applications specified in /opt/tigervnc/xstartup
-Log file is /metauser/.vnc/8424db806320:0.log
+Log file is /home/metauser/.vnc/8424db806320:0.log
 
 
 New 'f4fd1f7a7af8:0 ()' desktop is f4fd1f7a7af8:0
 
 Starting applications specified in /opt/tigervnc/xstartup
-Log file is /metauser/.vnc/f4fd1f7a7af8:0.log
+Log file is /home/metauser/.vnc/f4fd1f7a7af8:0.log
 

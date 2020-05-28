@@ -37,41 +37,41 @@ RUN chmod 755 /opt/tigervnc/xstartup
 RUN apt-get install imwheel zenity x11-xserver-utils -y
 
 # Create the Desktop
-RUN mkdir /metauser_vanilla/Desktop && chown metauser:metauser /metauser_vanilla/Desktop
+RUN mkdir /metauser_home_vanilla/Desktop && chown metauser:metauser /metauser_home_vanilla/Desktop
 
 # Add mouse scrolling script
 COPY files/set_mouse_scrolling_speed /usr/bin/
-COPY files/Set_Mouse_Scrolling_Speed.desktop /metauser_vanilla/Desktop/
+COPY files/Set_Mouse_Scrolling_Speed.desktop /metauser_home_vanilla/Desktop/
 RUN chmod 755 /usr/bin/set_mouse_scrolling_speed
 
 # Add Display Resolution stuff
 #COPY add_display_resolution /usr/bin/
 #COPY add_display_resolution_gui /usr/bin/
-#COPY Set_Display_Resolution.desktop /metauser_vanilla/Desktop/
-#COPY Add_Display_Resolution.desktop /metauser_vanilla/Desktop/
+#COPY Set_Display_Resolution.desktop /metauser_home_vanilla/Desktop/
+#COPY Add_Display_Resolution.desktop /metauser_home_vanilla/Desktop/
 #RUN chmod 755 /usr/bin/add_display_resolution && chmod 755 /usr/bin/add_display_resolution_gui 
 
 # Correct ownership of Desktop shortcuts
-RUN chown -R metauser:metauser /metauser_vanilla/Desktop/
+RUN chown -R metauser:metauser /metauser_home_vanilla/Desktop/
 
 # Shorter bash prompt
-#RUN echo "PS1=\"\u@MetaBox:\W $ \"" >> /metauser_vanilla/.bashrc
+#RUN echo "PS1=\"\u@MetaBox:\W $ \"" >> /metauser_home_vanilla/.bashrc
 
 
 # Default conf (mostly eyecandy)
-COPY files/home_metauser_.config /metauser_vanilla/.config
-#COPY data/desktop-cf881dd7/metauser_vanilla/.config /metauser_vanilla/.config
-RUN chown -R metauser:metauser /metauser_vanilla/.config
+COPY files/home_metauser_.config /metauser_home_vanilla/.config
+#COPY data/desktop-cf881dd7/metauser_home_vanilla/.config /metauser_home_vanilla/.config
+RUN chown -R metauser:metauser /metauser_home_vanilla/.config
 
 # Disable screensaver
-COPY files/dot_xscreensaver /metauser_vanilla/.xscreensaver
-RUN chown metauser:metauser /metauser_vanilla/.xscreensaver
+COPY files/dot_xscreensaver /metauser_home_vanilla/.xscreensaver
+RUN chown metauser:metauser /metauser_home_vanilla/.xscreensaver
 
 # Disable logout dialog
 RUN chmod 000 /usr/bin/xfce4-session-logout
 
 # Create Downloads folder. This is "required" for showing proper spacing between icons in the filemanager a bounch 
-RUN mkdir /metauser_vanilla/Downloads && chown metauser:metauser /metauser_vanilla/Downloads
+RUN mkdir /metauser_home_vanilla/Downloads && chown metauser:metauser /metauser_home_vanilla/Downloads
 
 
 #----------------------

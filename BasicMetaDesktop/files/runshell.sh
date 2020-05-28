@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /metauser
+cd /home/metauser
 exec /bin/bash

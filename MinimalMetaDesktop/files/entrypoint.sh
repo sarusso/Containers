@@ -27,6 +27,7 @@ else
 	    :
 	else
 		echo "[INFO] Setting up home"
+		mkdir -p /home/metauser
 
         # Copy over vanilla home contents
 		for x in /metauser_home_vanilla/* /metauser_home_vanilla/.[!.]* /metauser_home_vanilla/..?*; do

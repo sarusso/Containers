@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Astrocook
+Comment=
+Exec=python3 -u /home/metauser/astrocook/ac_gui.py
+Icon=utilities-terminal
+Path=
+Terminal=true
+StartupNotify=false

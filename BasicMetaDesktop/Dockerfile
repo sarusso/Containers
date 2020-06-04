@@ -86,9 +86,14 @@ RUN gdebi /root/dropbox_2015.10.28_amd64.deb -n
 COPY files/runshell.sh /bin/
 RUN chmod 755 /bin/runshell.sh
 
-
+# Set conatiner name for prompt
 ENV CONTAINER_NAME='basicmetadesktop'
 
+# Giveagain, since xfce install "fixed" it)  write access to anyone to the home folder so the entrypoint
+# will be able to copy over the /home/matauser_vanilla into /home/metauser (for Singularity)
+RUN chmod 777 /home
+
+# Switch back to metauser
 USER metauser
 
 

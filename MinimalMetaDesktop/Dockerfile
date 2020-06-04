@@ -89,7 +89,7 @@ RUN chown -R metauser:metauser /metauser_home_vanilla/.fluxbox
 COPY files/background.jpg /usr/share/images/fluxbox/background.jpg
 
 # Give write access to anyone to the home folder so the entrypoint will be able
-# to copy over the /home/matauser_vanilla into /home/metause (for Singularity)
+# to copy over the /home/matauser_vanilla into /home/metauser (for Singularity)
 RUN chmod 777 /home
 
 

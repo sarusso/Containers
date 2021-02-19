@@ -12,7 +12,7 @@ RUN pip3 install astropy==4.0.0 \
                  scipy==1.3.1 \
                  specutils==0.6 \
                  numpy==1.17.3 \
-                 lmfit==0.9.14 \
+                 lmfit==1.0.0 \
                  cycler==0.10.0 \
                  statsmodels==0.10.1 \
                  matplotlib==3.1.1 \

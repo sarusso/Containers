@@ -49,44 +49,45 @@ COPY files/supervisord.conf /etc/supervisor/
 RUN apt-get install xvfb xterm  -y
 
 # Install base packages for VNC server and headless desktop (2)
-RUN cd /opt && wget https://bintray.com/tigervnc/stable/download_file?file_path=tigervnc-1.8.0.x86_64.tar.gz -O tigervnc-1.8.0.x86_64.tar.gz \
-            && tar -zxvf tigervnc-1.8.0.x86_64.tar.gz \
-            && mv tigervnc-1.8.0.x86_64 tigervnc
+#RUN cd /opt && wget https://bintray.com/tigervnc/stable/download_file?file_path=tigervnc-1.8.0.x86_64.tar.gz -O tigervnc-1.8.0.x86_64.tar.gz \
+#            && tar -zxvf tigervnc-1.8.0.x86_64.tar.gz \
+#            && mv tigervnc-1.8.0.x86_64 tigervnc
 
 # Supervisord configuration
-COPY files/supervisord_vnc.conf /etc/supervisor/conf.d/
-COPY files/run_vnc.sh /etc/supervisor/conf.d/
-COPY files/run_novnc.sh /etc/supervisor/conf.d/
-RUN chmod 755 /etc/supervisor/conf.d/run_vnc.sh
-RUN chmod 755 /etc/supervisor/conf.d/run_novnc.sh
+COPY files/supervisord_kasm.conf /etc/supervisor/conf.d/
+COPY files/run_kasm.sh /etc/supervisor/conf.d/
+RUN chmod 755 /etc/supervisor/conf.d/run_kasm.sh
 
-# Web VNC (noVNC) v0.6.1.
-# NOTE: this is a custom version from Doro Wu (fcwu.tw@gmail.com).
-# TODO: Check differences and maybe move to 0.6.2
-COPY files/noVNC.tar.gz /usr/lib/
-RUN cd /usr/lib/ && tar -zxvf noVNC.tar.gz
-COPY files/index.html /usr/lib/noVNC
+# Kasm VNC (modded by gtaffoni to use a socket named by an env var)
+COPY files/kasmvnc-Linux-x86_64-0.9.tar.gz /tmp
+RUN sudo tar xz --strip 1 -C / -f /tmp/kasmvnc-Linux-x86_64-0.9.tar.gz && rm /tmp/kasmvnc-Linux-x86_64-0.9.tar.gz
+RUN mkdir /usr/local/share/kasmvnc/certs
+RUN chown metauser:metauser /usr/local/share/kasmvnc/certs
+COPY files/index.html /usr/local/share/kasmvnc/www/
 
+# Other utilities
 RUN apt-get install -y net-tools
-
-# Supervisord configuration
-COPY files/supervisord_novnc.conf /etc/supervisor/conf.d/
 
 # X environment setup/startup
 RUN apt-get install fluxbox -y
-COPY files/xstartup /opt/tigervnc/
-RUN chmod 755 /opt/tigervnc/xstartup
+RUN mkdir -p /metauser_home_vanilla/.vnc
+COPY files/config  /metauser_home_vanilla/.vnc
+COPY files/xstartup /metauser_home_vanilla/.vnc
+RUN chmod 755 /metauser_home_vanilla/.vnc/xstartup
+RUN chown -R metauser:metauser /metauser_home_vanilla/.vnc
 
 # Prepare for logs
-RUN mkdir /home/metauser/.logs && chown metauser:metauser /home/metauser/.logs
+RUN mkdir /metauser_home_vanilla/.logs && chown metauser:metauser /metauser_home_vanilla/.logs
 
 # Rename metauser home folder as a "vanilla" home folder
-RUN mv /home/metauser /metauser_home_vanilla
+#RUN mv /home/metauser /metauser_home_vanilla
 
 # Add fluxbox customisations
 COPY files/dot_fluxbox /metauser_home_vanilla/.fluxbox
 RUN chown -R metauser:metauser /metauser_home_vanilla/.fluxbox
 COPY files/background.jpg /usr/share/images/fluxbox/background.jpg
+
+
 
 # Give write access to anyone to the home folder so the entrypoint will be able
 # to copy over the /home/matauser_vanilla into /home/metauser (for Singularity)

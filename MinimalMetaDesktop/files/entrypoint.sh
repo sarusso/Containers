@@ -60,22 +60,35 @@ else
 	      echo "export $env_var" >> /tmp/env.sh
 	  fi
 	done
+
 	
     #---------------------
     #   Password
     #---------------------
-	
-	if [ "x$AUTH_PASS" != "x" ]; then
-	    echo "[INFO] Setting up VNC password..."
-	    mkdir -p /home/metauser/.vnc
-	    /opt/tigervnc/usr/bin/vncpasswd -f <<< $AUTH_PASS > /home/metauser/.vnc/passwd
-	    chmod 600 /home/metauser/.vnc/passwd
-	    export VNC_AUTH=True
-	else
-	    echo "[INFO] Not setting up any VNC password"
-	        
-	fi
-	
+
+    if [ "x$AUTH_PASS" != "x" ]; then
+        echo "[INFO] Setting up VNC password..."
+    else
+        echo "[INFO] Setting up default VNC password (metapassword)"
+        AUTH_PASS=metapass
+    fi            
+    /usr/local/bin/kasmvncpasswd -f <<< $AUTH_PASS > /home/metauser/.kasmpasswd
+    chmod 600 /home/metauser/.kasmpasswd
+    export VNC_AUTH=True
+
+
+    #---------------------
+    #   User
+    #---------------------
+
+    if [ "x$AUTH_USER" != "x" ]; then
+        echo "[INFO] Setting up VNC user..."
+        sed -i -e "s/username=metauser/username=$AUTH_USER/" /home/metauser/.vnc/config 
+    else
+        echo "[INFO] Setting up default VNC user (metauser)"
+    fi
+
+							
 	echo "[INFO] Setting new prompt @$CONTAINER_NAME container"
 	echo 'export PS1="${debian_chroot:+($debian_chroot)}\u@$CONTAINER_NAME@\h:\w\$ "' >> /home/metauser/.bashrc
 	

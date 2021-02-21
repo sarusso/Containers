@@ -15,7 +15,6 @@ RUN apt-get update
 COPY files/system_deps.sh /root/
 COPY files/python_deps.txt /root/
 RUN bash /root/system_deps.sh
-RUN pip install -r /root/python_deps.txt
 RUN pip3 install -r /root/python_deps.txt
 
 #--------------------------------------

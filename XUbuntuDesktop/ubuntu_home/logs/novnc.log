@@ -1,0 +1,31 @@
+Warning: could not find self.pem
+Using local websockify at /usr/lib/noVNC/utils/websockify/run
+Starting webserver and WebSockets proxy on port 8590
+/usr/lib/noVNC/utils/websockify/websockify/websocket.py:30: UserWarning: no 'numpy' module, HyBi protocol will be slower
+  warnings.warn("no 'numpy' module, HyBi protocol will be slower")
+WebSocket server settings:
+  - Listen on :8590
+  - Web server. Web root: /usr/lib/noVNC
+  - No SSL/TLS support (no cert file)
+  - proxying from :8590 to localhost:5900
+172.17.0.1 - - [14/May/2020 15:23:37] 172.17.0.1: Plain non-SSL (ws://) WebSocket connection
+172.17.0.1 - - [14/May/2020 15:23:37] 172.17.0.1: Path: '/websockify'
+172.17.0.1 - - [14/May/2020 15:23:37] connecting to: localhost:5900
+172.17.0.1: ignoring socket not ready
+172.17.0.1: ignoring socket not ready
+Warning: could not find self.pem
+Using local websockify at /usr/lib/noVNC/utils/websockify/run
+Starting webserver and WebSockets proxy on port 8590
+/usr/lib/noVNC/utils/websockify/websockify/websocket.py:30: UserWarning: no 'numpy' module, HyBi protocol will be slower
+  warnings.warn("no 'numpy' module, HyBi protocol will be slower")
+WebSocket server settings:
+  - Listen on :8590
+  - Web server. Web root: /usr/lib/noVNC
+  - No SSL/TLS support (no cert file)
+  - proxying from :8590 to localhost:5900
+172.17.0.1: ignoring socket not ready
+172.17.0.1 - - [14/May/2020 15:24:09] 172.17.0.1: Plain non-SSL (ws://) WebSocket connection
+172.17.0.1 - - [14/May/2020 15:24:09] 172.17.0.1: Path: '/websockify'
+172.17.0.1 - - [14/May/2020 15:24:09] connecting to: localhost:5900
+172.17.0.1: ignoring socket not ready
+172.17.0.1: ignoring socket not ready

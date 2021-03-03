@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Add Display Resolution
+Comment=
+Exec=add_display_resolution_gui
+Icon=video-display
+Path=
+Terminal=false
+StartupNotify=false

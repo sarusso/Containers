@@ -184,6 +184,11 @@ COPY files/eclipse128.png /opt/eclipse/eclipse128.png
 COPY files/Eclipse.desktop /ubuntu_home_vanilla/Desktop/
 RUN chown -R ubuntu:ubuntu /ubuntu_home_vanilla/Desktop/
 
+# Docker
+ARG DOCKER_GID
+RUN groupadd -g $DOCKER_GID docker
+RUN apt-get install docker.io -y
+RUN usermod -aG docker ubuntu
 
 # Giveagain, since xfce install "fixed" it)  write access to anyone to the home folder so the entrypoint
 # will be able to copy over the /home/matauser_vanilla into /home/ubuntu (for Singularity)
@@ -208,3 +213,5 @@ USER ubuntu
 
 # To access: expose 8590/tcp and 5900/tcp
 ENV CONTAINER_NAME='xubuntudesktop'
+
+

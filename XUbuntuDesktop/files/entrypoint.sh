@@ -89,8 +89,8 @@ else
     fi
 
 							
-	echo "[INFO] Setting new prompt @$CONTAINER_NAME container"
-	echo 'export PS1="${debian_chroot:+($debian_chroot)}\u@$CONTAINER_NAME@\h:\w\$ "' >> /home/ubuntu/.bashrc
+    #echo "[INFO] Setting new prompt @$CONTAINER_NAME container"
+    #echo 'export PS1="${debian_chroot:+($debian_chroot)}\u@$CONTAINER_NAME@\h:\w\$ "' >> /home/ubuntu/.bashrc
 	
 	
 	
